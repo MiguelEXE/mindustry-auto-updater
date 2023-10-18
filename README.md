@@ -2,5 +2,5 @@
 ## An auto updater for lazy people
 
 ```bash
-curl -O- | sudo bash
+wget -O- https://github.com/MiguelEXE/mindustry-auto-updater/raw/master/install.sh | sudo bash
 ```

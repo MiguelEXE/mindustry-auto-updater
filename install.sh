@@ -3,10 +3,10 @@ if [ $(id -u) -ne 0 ]; then
     echo "Run this command as sudo!"
     exit 1
 fi
-download_url="github.com/MiguelEXE/mindustry-auto-updater/raw/master/mindustry.sh"
+download_url="https://github.com/MiguelEXE/mindustry-auto-updater/raw/master/mindustry.sh"
 
 echo "Downloading mindustry auto updater."
 wget -q --show-progress -O /usr/bin/mindustry $download_url
 chmod +x /usr/bin/mindustry
 
-echo "Done! run `mindustry` to start mindustry now!"
+echo -e "\e[92mDone! \e[97mRun \e[1m\`mindustry\`\e[0m\e[97m to start mindustry now!\e[0m"
