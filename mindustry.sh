@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo -ee "Mindutry auto-updater v1.0.0\nCopyright © 2023 MiguelEXE\n"
 mkdir -p ~/.mindustry
 cd ~/.mindustry
 
@@ -34,11 +34,17 @@ else
     if [ $first_time_running_message = true ]; then
         echo -e "\e[1m\e[37mFirst time running.\e[0m\n"
     else
-        echo -e "\e[1m\e[31mMindustry.jar was unexpectedly deleted.\e[0m\n"
+        >&2 echo -e "\e[1m\e[91mMindustry.jar was unexpectedly deleted.\e[0m\n"
     fi
     echo "$latest_release_id" > latest_id
     download
 fi
 
+type java > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    >&2 echo -e "\e[91mCannot find java in your \$PATH variable!\e[0m"
+    exit 1
+fi
+
 echo -e "\e[90mLaunching mindustry...\e[0m"
-exec java -jar Mindustry.jar
+java -jar Mindustry.jar

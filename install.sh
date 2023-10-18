@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $(id -u) -ne 0 ]; then
-    echo "Run this command as sudo!"
+    >&2 echo -e "\e[91mRun this command as sudo!\e[0m"
     exit 1
 fi
 download_url="https://github.com/MiguelEXE/mindustry-auto-updater/raw/master/mindustry.sh"
